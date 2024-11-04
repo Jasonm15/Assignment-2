@@ -43,7 +43,7 @@ ul li {
     font-size: 16px;
     margin-bottom: 10px;
 }
-
+ 
 /* Style for links */
 a {
     color: #0056b3;
@@ -54,3 +54,14 @@ a:hover {
     text-decoration: underline;
 }
 
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}

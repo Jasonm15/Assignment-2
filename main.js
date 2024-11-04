@@ -54,4 +54,49 @@ $(document).ready(function(){
             });
         }
     );
+    
+    $('#myTable tr:odd').css('background-color', '#f9f9f9');  // Odd rows
+    $('#myTable tr:even').css('background-color', '#e0f7fa'); // Even rows
+
+    
+    $('span:first').css('background-color', '#ffeb3b');
+    $('span:last').css('background-color', '#ff9800');
 });
+
+    // AJAX call for Chuck Norris joke
+    $('#getJoke').click(function() {
+        $.ajax({
+            method: 'GET',
+            url: 'https://api.api-ninjas.com/v1/chucknorris',
+            headers: { 'X-Api-Key': '7JgKfcbkexJ97ksymLRK8g==frPeBBebrbjJGX9p' },
+            contentType: 'application/json',
+            success: function(result) {
+                $('#jokeData').empty().append(`<p>${result.joke}</p>`);
+            },
+            error: function(jqXHR) {
+                console.error('Error: ', jqXHR.responseText);
+                alert("An error occurred while loading the joke.");
+            }
+        });
+    });
+    const lat = 38.6270;  
+    const lon = -90.1994; 
+    const apiKey = 'a7663ed94d23752c643d0e2985ccb7d7';
+    // AJAX call for weather data
+    $('#getWeather').click(function() {
+        $.ajax({
+            url: `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`,
+            type: 'GET',
+            success: function(data) {
+                const weatherDescription = data.weather[0].description;
+                const temperature = data.main.temp;
+                $('#weatherData').empty().append(`<p>Current Weather: ${weatherDescription}</p><p>Temperature: ${temperature} °F</p>`);
+            },
+            error: function(jqXHR) {
+                console.error('Error: ', jqXHR.responseText);
+                alert("An error occurred while loading the weather data.");
+            }
+        });
+    });
+
+
