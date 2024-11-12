@@ -99,4 +99,17 @@ $(document).ready(function(){
         });
     });
 
+    $(document).ready(function() {
+       
+        $("#tabs").tabs();
+    
+      
+        $("#accordion").accordion();
+    
+        
+        $("#progressbar").progressbar({
+            value: 80
+        });
+    });
+    
 
